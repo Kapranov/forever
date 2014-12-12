@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forever</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "modernizr.custom.86080" %>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <%= javascript_include_tag "excanvas" %>
+  <![endif]-->
+  <%= favicon_link_tag 'favicon.ico'%>
+  <meta name="google-site-verification" content="t1E9nFlLO0RTMRGAcFPkbdVWxjUfaQG-3CdXaAzKpTE" />
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <ul class="cb-slideshow">
+    <li><span>Image 01</span><div><h3></h3></div></li>
+    <li><span>Image 02</span><div><h3></h3></div></li>
+    <li><span>Image 03</span><div><h3></h3></div></li>
+    <li><span>Image 04</span><div><h3></h3></div></li>
+    <li><span>Image 05</span><div><h3></h3></div></li>
+    <li><span>Image 06</span><div><h3></h3></div></li>
+    <li><span>Image 07</span><div><h3></h3></div></li>
+  </ul>
+  <div id="progress_bar_left"></div>
+  <div id="progress_bar_right"></div>
+<section id="main" data-current-page="<%= @page %>">
+  <div id="p0" class="title_block p0 initial_hover">
+    <div id="logo">Forever</div>
+    <div id="sublogo">Форевер Ливинг Продактс Украина</div>
+  </div>
+  <div id="p1" class="block p0" data-page="about" data-url="<%= page_path('about') %>">
+    <div class="block_label">История</div>
+  </div>
+  <div id="p2" class="small_block_right p0" data-page="education" data-url="<%= page_path('education') %>">
+    <div class="block_label">Галерея</div>
+  </div>
+  <div id="p4" class="small_block_left p0" data-page="skills" data-url="<%= page_path('skills') %>">
+    <div class="block_label">Forever world</div>
+  </div>
+  <div id="p5" class="block p0" data-page="contact" data-url="<%= page_path('contact') %>">
+    <div class="block_label">Контакты</div>
+  </div>
+  <div id="p6" class="small_block_right p0" data-page="experience" data-url="<%= page_path('experience') %>">
+    <div class="block_label">Новости</div>
+  </div>
+  <div id="p8" class="small_block_left p0" data-page="portfolio" data-url="<%= page_path('portfolio') %>">
+    <div class="block_label">Продукция</div>
+  </div>
+  <section id="page">
+    <%= yield %>
+  </section>
+  <div id="throbbler_container"></div>
+</section>
+</body>
+</html>

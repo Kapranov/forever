@@ -1,0 +1,40 @@
+<% cache do %>
+  <%= image_tag 'home.png', :id => 'home_btn', :size => '20x20', :title => 'На главную страницу' %>
+  <section id="page_header">
+    <div class="page_header_title">Контакты</div>
+    <div class="page_header_separator">как с нами связаться</div>
+  </section>
+  <section id="page_content">
+    <div id="contact_info_container">
+      <div id="hook">Оставьте сообщение <span>мы ответим вам.</span></div>
+      <div id="instructions">Заполните эту форму или отправьте письмо <span class="email_address">lugatex<span>[at]</span>yahoo.com</span></div>
+    </div>
+    <div id="contact_form_container">
+      <%= form_tag('/contact', :remote => true) do %>
+        <div class="row">
+          <div class="cell label">Фамилия*</div>
+          <div class="cell input"><%= text_field_tag 'contact[name]', nil, :required => '' %></div>
+        </div>
+        <div class="row">
+          <div class="cell label">Почта*</div>
+          <div class="cell input"><%= email_field_tag 'contact[email]', nil, :required => '' %></div>
+        </div>
+        <div class="row">
+          <div class="cell label">О себе</div>
+          <div class="cell input"><%= text_field_tag 'contact[company]' %></div>
+        </div>
+        <div class="text_area_row">
+          <div class="cell label">Текст</div>
+          <div class="cell input"><%= text_area_tag 'contact[message]', nil, :size => '100x5' %></div>
+        </div>
+        <div class="submit_row">
+          <div class="cell label"></div>
+          <div class="cell input"><%= submit_tag "Отправить", :id => "submit", :name => "submit", :class => "form_submit" %></div>
+        </div>
+      <% end -%>
+    </div>
+    <%= link_to public_path('kapranov_resume.pdf'), :target => '_blank', :id => 'resume_download' do %>
+      <%= image_tag "file.png", :id => 'download_resume_btn', :size => "20x20", :title => raw("Наши реквизиты в формате PDF") %>
+    <% end %>
+  </section>
+<% end %>
